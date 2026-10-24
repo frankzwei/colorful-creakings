@@ -105,6 +105,7 @@ tasks {
         "neoforge_version" to libs("neoforge").get().version,
         "neoforge_minecraft_version_range" to Properties.NEOFORGE_MINECRAFT_RANGE,
         "neoforge_loader_version_range" to Properties.NEOFORGE_LOADER_RANGE,
+        "neoforge_version_range" to Properties.NEOFORGE_VERSION_RANGE,
         "java_version" to Properties.JAVA,
         "homepage" to Properties.HOMEPAGE,
         "sources" to Properties.GITHUB_REPO

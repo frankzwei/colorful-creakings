@@ -12,7 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class ColoredResinItems {

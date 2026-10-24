@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:blue_resin_brick_stairs"
+        "recipes": "colorfulcreakings:blue_resin_brick_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

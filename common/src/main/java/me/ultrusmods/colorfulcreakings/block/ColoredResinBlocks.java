@@ -8,40 +8,84 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ColoredResinBlocks {
+
     public static final Map<CreakingColor, ColoredResinBlockSet> BLOCK_SET_MAP = new HashMap<>();
 
-    public record ColoredResinBlockSet(CreakingColor color, Block baseBlock, Block bricks, Block brickStairs,
-                                       Block brickSlab, Block brickWall, Block chiseledBricks, Block clump, Block creakingHeart) {
+    public record ColoredResinBlockSet(CreakingColor color, Block baseBlock, Block bricks,
+            Block brickStairs, Block brickSlab, Block brickWall, Block chiseledBricks,
+            Block clump, Block creakingHeart) {
+
         public static ColoredResinBlockSet create(CreakingColor color) {
-            var baseBlockProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).sound(SoundType.RESIN);
+            Properties baseBlockProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .sound(SoundType.RESIN);
             baseBlockProperties.setId(resinBlockId(color, "resin_block"));
-            var brickProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.RESIN_BRICKS).strength(1.5F, 6.0F);
+
+            Properties brickProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.RESIN_BRICKS)
+                    .strength(1.5F, 6.0F);
             brickProperties.setId(resinBlockId(color, "resin_bricks"));
-            var resinBricks = new Block(brickProperties);
-            var brickStairsProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.RESIN_BRICKS).strength(1.5F, 6.0F);
+
+            Block resinBricks = new Block(brickProperties);
+            Properties brickStairsProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.RESIN_BRICKS)
+                    .strength(1.5F, 6.0F);
             brickStairsProperties.setId(resinBlockId(color, "resin_brick_stairs"));
-            var brickSlabProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.RESIN_BRICKS).strength(1.5F, 6.0F);
+
+            Properties brickSlabProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.RESIN_BRICKS)
+                    .strength(1.5F, 6.0F);
             brickSlabProperties.setId(resinBlockId(color, "resin_brick_slab"));
-            var brickWallProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.RESIN_BRICKS).strength(1.5F, 6.0F);
+
+            Properties brickWallProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.RESIN_BRICKS)
+                    .strength(1.5F, 6.0F);
             brickWallProperties.setId(resinBlockId(color, "resin_brick_wall"));
-            var chiseledBricksProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().sound(SoundType.RESIN_BRICKS).strength(1.5F, 6.0F);
+
+            Properties chiseledBricksProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .sound(SoundType.RESIN_BRICKS)
+                    .strength(1.5F, 6.0F);
             chiseledBricksProperties.setId(resinBlockId(color, "chiseled_resin_bricks"));
 
-            var clumpProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).replaceable().noCollission().sound(SoundType.RESIN).ignitedByLava().pushReaction(PushReaction.DESTROY);
+            Properties clumpProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .replaceable()
+                    .noCollision()
+                    .sound(SoundType.RESIN)
+                    .ignitedByLava()
+                    .pushReaction(PushReaction.POPPED);
             clumpProperties.setId(resinBlockId(color, "resin_clump"));
 
-            var creakingHeartProperties = BlockBehaviour.Properties.of().mapColor(color.getDyeColor().getMapColor()).instrument(NoteBlockInstrument.BASEDRUM).strength(10.0F).sound(SoundType.CREAKING_HEART);
+            Properties creakingHeartProperties = BlockBehaviour.Properties.of()
+                    .mapColor(color.getDyeColor().getMapColor())
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .strength(10.0F)
+                    .sound(SoundType.CREAKING_HEART);
             creakingHeartProperties.setId(resinBlockId(color, "creaking_heart"));
-
-
 
             ColoredResinBlockSet coloredResinBlockSet = new ColoredResinBlockSet(color,
                     new Block(baseBlockProperties),
@@ -55,6 +99,7 @@ public class ColoredResinBlocks {
             BLOCK_SET_MAP.put(color, coloredResinBlockSet);
             return coloredResinBlockSet;
         }
+
         public static ColoredResinBlockSet createOrangeBase() {
             ColoredResinBlockSet coloredResinBlockSet = new ColoredResinBlockSet(
                     CreakingColor.ORANGE,

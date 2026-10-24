@@ -11,13 +11,14 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.CreakingHeartBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.CreakingHeartState;
 
 public class ColoredCreakingHeartBlock extends CreakingHeartBlock {
 
-
     private final CreakingColor color;
-    protected ColoredCreakingHeartBlock(Properties p_380228_, CreakingColor color) {
-        super(p_380228_);
+
+    protected ColoredCreakingHeartBlock(Properties properties, CreakingColor color) {
+        super(properties);
         this.color = color;
     }
 
@@ -26,12 +27,16 @@ public class ColoredCreakingHeartBlock extends CreakingHeartBlock {
     }
 
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level p_379447_, BlockState p_379641_, BlockEntityType<T> p_380325_) {
-        if (p_379447_.isClientSide) {
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> type) {
+        if (level.isClientSide()) {
             return null;
-        } else {
-            return p_379641_.getValue(ACTIVE) ? createTickerHelper(p_380325_, ColorfulCreakingsBlockEntities.COLORED_CREAKING_HEART_BLOCK_ENTITY, CreakingHeartBlockEntity::serverTick) : null;
         }
+
+        return blockState.getValue(STATE) != CreakingHeartState.UPROOTED
+                ? createTickerHelper(type,
+                        ColorfulCreakingsBlockEntities.COLORED_CREAKING_HEART_BLOCK_ENTITY,
+                        CreakingHeartBlockEntity::serverTick)
+                : null;
     }
 
     @Override

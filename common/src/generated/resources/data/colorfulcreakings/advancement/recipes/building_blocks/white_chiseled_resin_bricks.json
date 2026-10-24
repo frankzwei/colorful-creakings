@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:white_chiseled_resin_bricks"
+        "recipes": "colorfulcreakings:white_chiseled_resin_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

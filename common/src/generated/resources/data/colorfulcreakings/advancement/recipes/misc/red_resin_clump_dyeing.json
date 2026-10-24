@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:red_resin_clump_dyeing"
+        "recipes": "colorfulcreakings:red_resin_clump_dyeing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:red_resin_clump_dyeing"
+      "colorfulcreakings:red_resin_clump_dyeing"
     ]
   }
 }

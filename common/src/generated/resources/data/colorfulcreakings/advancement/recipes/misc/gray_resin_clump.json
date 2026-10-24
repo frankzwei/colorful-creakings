@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:gray_resin_clump"
+        "recipes": "colorfulcreakings:gray_resin_clump"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:gray_resin_clump"
+      "colorfulcreakings:gray_resin_clump"
     ]
   }
 }

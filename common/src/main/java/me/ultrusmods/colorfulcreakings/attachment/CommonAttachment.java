@@ -1,15 +1,15 @@
 package me.ultrusmods.colorfulcreakings.attachment;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.LivingEntity;
 import java.util.Objects;
 import java.util.function.Supplier;
 
 public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
-    private final ResourceLocation id;
+
+    private final Identifier id;
     private final boolean copyOnDeath;
     private final Codec<T> codec;
     private final Supplier<T> defaultValue;
@@ -17,7 +17,7 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
     // Set by each loader
     private AttachmentDataHelper<T> helper = null;
 
-    public CommonAttachment(ResourceLocation id, boolean copyOnDeath, Codec<T> codec, Supplier<T> defaultValue) {
+    public CommonAttachment(Identifier id, boolean copyOnDeath, Codec<T> codec, Supplier<T> defaultValue) {
         this.id = id;
         this.copyOnDeath = copyOnDeath;
         this.codec = codec;
@@ -34,11 +34,11 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
         return id.hashCode();
     }
 
-    public static <T> CommonAttachmentBuilder<T> builder(ResourceLocation id) {
+    public static <T> CommonAttachmentBuilder<T> builder(Identifier id) {
         return new CommonAttachmentBuilder<>(id);
     }
 
-    public ResourceLocation id() {
+    public Identifier id() {
         return id;
     }
 
@@ -56,9 +56,14 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == this) return true;
-        if (obj == null || obj.getClass() != this.getClass()) return false;
-        var that = (CommonAttachment) obj;
+        if (obj == this) {
+            return true;
+        }
+
+        if (obj == null || !(obj instanceof CommonAttachment<?> that)) {
+            return false;
+        }
+
         return Objects.equals(this.id, that.id) &&
                 this.copyOnDeath == that.copyOnDeath &&
                 Objects.equals(this.codec, that.codec) &&
@@ -94,14 +99,14 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
         helper.removeAttachment(entity);
     }
 
-
     public static class CommonAttachmentBuilder<T> {
-        private final ResourceLocation id;
+
+        private final Identifier id;
         private boolean copyOnDeath = false;
         private Codec<T> codec = null;
         private Supplier<T> defaultValue = null;
 
-        public CommonAttachmentBuilder(ResourceLocation id) {
+        public CommonAttachmentBuilder(Identifier id) {
             this.id = id;
         }
 
@@ -119,7 +124,6 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
             return this;
         }
 
-
         public CommonAttachmentBuilder<T> defaultValue(Supplier<T> defaultValue) {
             this.defaultValue = defaultValue;
             return this;
@@ -129,5 +133,4 @@ public final class CommonAttachment<T> implements AttachmentDataHelper<T> {
             return new CommonAttachment<>(id, copyOnDeath, codec, defaultValue);
         }
     }
-
 }

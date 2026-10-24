@@ -1,0 +1,88 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Fabric Client (:fabric)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fabric\\run",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "net.fabricmc.devlaunchinjector.Main",
+      "vmArgs": "-Dfabric.dli.config\u003dC:\\Users\\frank\\Development\\Projects\\colorful-creakings\\.gradle\\loom-cache\\projects\\fabric\\launch.cfg -Dfabric.dli.env\u003dclient -Dfabric.dli.main\u003dnet.fabricmc.loader.impl.launch.knot.KnotClient -XX:StackShadowPages\u003d32 --sun-misc-unsafe-memory-access\u003dallow --enable-native-access\u003dALL-UNNAMED",
+      "args": "",
+      "env": {},
+      "projectName": "fabric"
+    },
+    {
+      "type": "java",
+      "name": "Fabric Datagen (:fabric)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fabric\\build\\datagen",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "net.fabricmc.devlaunchinjector.Main",
+      "vmArgs": "-Dfabric-api.datagen -Dfabric-api.datagen.output-dir\u003dC:\\Users\\frank\\Development\\Projects\\colorful-creakings\\common\\src\\generated\\resources -Dfabric-api.datagen.modid\u003dcolorfulcreakings -Dfabric.dli.config\u003dC:\\Users\\frank\\Development\\Projects\\colorful-creakings\\.gradle\\loom-cache\\projects\\fabric\\launch.cfg -Dfabric.dli.env\u003dclient -Dfabric.dli.main\u003dnet.fabricmc.loader.impl.launch.knot.KnotClient -XX:StackShadowPages\u003d32 --sun-misc-unsafe-memory-access\u003dallow --enable-native-access\u003dALL-UNNAMED",
+      "args": "",
+      "env": {},
+      "projectName": "fabric"
+    },
+    {
+      "type": "java",
+      "name": "Fabric Server (:fabric)",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/fabric\\run",
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "mainClass": "net.fabricmc.devlaunchinjector.Main",
+      "vmArgs": "-Dfabric.dli.config\u003dC:\\Users\\frank\\Development\\Projects\\colorful-creakings\\.gradle\\loom-cache\\projects\\fabric\\launch.cfg -Dfabric.dli.env\u003dserver -Dfabric.dli.main\u003dnet.fabricmc.loader.impl.launch.knot.KnotServer --sun-misc-unsafe-memory-access\u003dallow --enable-native-access\u003dALL-UNNAMED",
+      "args": "nogui nogui",
+      "env": {},
+      "projectName": "fabric"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "neoforge - Client",
+      "presentation": {
+        "group": "Mod Development - neoforge",
+        "order": 0
+      },
+      "projectName": "neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcolorfulcreakings%%C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\bin\\main;colorfulcreakings%%C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\bin\\test"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\runs\\client",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "neoforge - Server",
+      "presentation": {
+        "group": "Mod Development - neoforge",
+        "order": 1
+      },
+      "projectName": "neoforge",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dcolorfulcreakings%%C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\bin\\main;colorfulcreakings%%C:\\Users\\frank\\Development\\Projects\\colorful-creakings\\neoforge\\bin\\test"
+      ],
+      "cwd": "${workspaceFolder}\\neoforge\\runs\\server",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

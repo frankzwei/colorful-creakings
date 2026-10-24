@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cyan_resin_brick_stairs_from_cyan_resin_bricks_stonecutting"
+        "recipes": "colorfulcreakings:cyan_resin_brick_stairs_from_cyan_resin_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cyan_resin_brick_stairs_from_cyan_resin_bricks_stonecutting"
+      "colorfulcreakings:cyan_resin_brick_stairs_from_cyan_resin_bricks_stonecutting"
     ]
   }
 }

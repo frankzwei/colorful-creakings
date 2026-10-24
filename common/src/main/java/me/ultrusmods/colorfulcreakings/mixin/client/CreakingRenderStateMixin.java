@@ -8,16 +8,29 @@ import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(CreakingRenderState.class)
 public class CreakingRenderStateMixin implements CreakingAdditionalRenderState {
+
     @Unique
     private CreakingColor colorfulCreakingsMod$creakingColor = CreakingColor.ORANGE;
+    @Unique
+    private boolean colorfulCreakingsMod$jeb = false;
 
     @Override
     public CreakingColor getCreakingColor() {
-        return colorfulCreakingsMod$creakingColor;
+        return this.colorfulCreakingsMod$creakingColor;
     }
 
     @Override
     public void setCreakingColor(CreakingColor creakingColor) {
         this.colorfulCreakingsMod$creakingColor = creakingColor;
+    }
+
+    @Override
+    public boolean isJeb() {
+        return this.colorfulCreakingsMod$jeb;
+    }
+
+    @Override
+    public void setJeb(boolean jeb) {
+        this.colorfulCreakingsMod$jeb = jeb;
     }
 }

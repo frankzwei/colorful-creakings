@@ -7,13 +7,8 @@ import me.ultrusmods.colorfulcreakings.register.ColorfulCreakingsAttachments;
 import me.ultrusmods.colorfulcreakings.register.ColorfulCreakingsBlockEntities;
 import me.ultrusmods.colorfulcreakings.register.ColorfulCreakingsItems;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.monster.creaking.Creaking;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
-import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegisterEvent;
@@ -42,13 +37,7 @@ public class ColorfulCreakingsModNeoForge {
     private void registerPacket(RegisterPayloadHandlersEvent event) {
         event.registrar(Constants.MOD_ID)
                 .versioned("1.0.0")
-                .playToClient(CreakingColorS2CPacket.TYPE, CreakingColorS2CPacket.STREAM_CODEC, (packet, context) -> {
-                    packet.handle();
-                });
+                .playToClient(CreakingColorS2CPacket.TYPE, CreakingColorS2CPacket.STREAM_CODEC,
+                        (packet, context) -> packet.handle());
     }
-
-
-
-
-
 }

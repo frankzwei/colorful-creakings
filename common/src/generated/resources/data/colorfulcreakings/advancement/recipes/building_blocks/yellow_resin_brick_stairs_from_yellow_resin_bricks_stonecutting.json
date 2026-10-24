@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:yellow_resin_brick_stairs_from_yellow_resin_bricks_stonecutting"
+        "recipes": "colorfulcreakings:yellow_resin_brick_stairs_from_yellow_resin_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:yellow_resin_brick_stairs_from_yellow_resin_bricks_stonecutting"
+      "colorfulcreakings:yellow_resin_brick_stairs_from_yellow_resin_bricks_stonecutting"
     ]
   }
 }

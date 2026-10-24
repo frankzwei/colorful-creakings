@@ -35,11 +35,9 @@ tasks {
     named<ProcessResources>("processResources").configure {
         dependsOn(configurations.getByName("commonResources"))
         from(configurations.getByName("commonResources"))
-        from(configurations.getByName("commonResources"))
     }
     named<ProcessResources>("processTestResources").configure {
         dependsOn(configurations.getByName("commonTestResources"))
-        from(configurations.getByName("commonTestResources"))
         from(configurations.getByName("commonTestResources"))
     }
     named<Javadoc>("javadoc").configure {

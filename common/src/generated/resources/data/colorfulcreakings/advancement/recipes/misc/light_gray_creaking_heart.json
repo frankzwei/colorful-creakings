@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:light_gray_creaking_heart"
+        "recipes": "colorfulcreakings:light_gray_creaking_heart"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

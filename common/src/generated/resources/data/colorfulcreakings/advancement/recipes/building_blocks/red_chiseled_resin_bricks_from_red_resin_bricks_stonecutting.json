@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:red_chiseled_resin_bricks_from_red_resin_bricks_stonecutting"
+        "recipes": "colorfulcreakings:red_chiseled_resin_bricks_from_red_resin_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:red_chiseled_resin_bricks_from_red_resin_bricks_stonecutting"
+      "colorfulcreakings:red_chiseled_resin_bricks_from_red_resin_bricks_stonecutting"
     ]
   }
 }

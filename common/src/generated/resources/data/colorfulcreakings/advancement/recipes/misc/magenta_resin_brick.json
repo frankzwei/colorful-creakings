@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:magenta_resin_brick"
+        "recipes": "colorfulcreakings:magenta_resin_brick"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -11,10 +11,6 @@ base.archivesName = base.archivesName.get() + "-neoforge"
 
 neoForge {
     version = libs.neoforge.get().version
-    parchment {
-        minecraftVersion = libs.minecraft.get().version
-        mappingsVersion = Properties.PARCHMENT_VERSION
-    }
     addModdingDependenciesTo(sourceSets["test"])
 
     val at = project(":common").file("src/main/resources/${Properties.MOD_ID}.cfg")
@@ -72,7 +68,7 @@ publishMods {
         accessToken = providers.gradleProperty("CF_API_KEY")
 
         minecraftVersions.addAll(Properties.SUPPORTED_VERSIONS.asIterable())
-        javaVersions.add(JavaVersion.VERSION_21)
+        javaVersions.add(JavaVersion.VERSION_25)
 
         clientRequired = true
         serverRequired = true

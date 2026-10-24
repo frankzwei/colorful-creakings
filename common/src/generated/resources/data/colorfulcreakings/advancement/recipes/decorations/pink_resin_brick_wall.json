@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:pink_resin_brick_wall"
+        "recipes": "colorfulcreakings:pink_resin_brick_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

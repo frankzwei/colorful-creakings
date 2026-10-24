@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "colorfulcreakings:yellow_resin_bricks"
+        "recipes": "colorfulcreakings:yellow_resin_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
