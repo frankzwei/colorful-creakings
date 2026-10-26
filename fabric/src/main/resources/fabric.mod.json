@@ -7,9 +7,7 @@
     "authors": [
         "${mod_author}"
     ],
-    "contributors": [
-        ${fabric_mod_contributors}
-    ],
+    "contributors": [],
     "contact": {
         "homepage": "${homepage}",
         "issues": "https://github.com/${sources}/issues",

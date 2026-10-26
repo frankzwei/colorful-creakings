@@ -1,3 +1,4 @@
 {
-    "editor.rulers": [100]
+    "java.autobuild.enabled": true,
+    "java.debug.settings.hotCodeReplace": "auto"
 }
